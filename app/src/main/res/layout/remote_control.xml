@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:columnCount="4"
+    android:fadeScrollbars="false"
+    android:rowCount="11"
+    tools:context=".RemoteControlController">
+
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_marginRight="2dp"
+        android:layout_row="1"
+        android:layout_rowSpan="4"
+        android:background="@drawable/rounded_grid"
+        android:columnCount="3"
+        android:rowCount="4"
+        android:layout_marginTop="16dp">
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_column="0"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_row="0">
+
+            <android.support.design.widget.FloatingActionButton
+                android:src="@android:color/transparent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:backgroundTint="?attr/colorButtonNormal"
+                android:tag="40"
+                android:clickable="true"
+                android:onClick="clickButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Noise"
+                android:elevation="16dp"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_column="1"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_row="0">
+
+            <android.support.design.widget.FloatingActionButton
+                android:src="@android:color/transparent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:backgroundTint="?attr/colorButtonNormal"
+                android:tag="42"
+                android:clickable="true"
+                android:onClick="clickButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Fire"
+                android:elevation="16dp"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_column="2"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_row="0">
+
+            <android.support.design.widget.FloatingActionButton
+                android:src="@android:color/transparent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:backgroundTint="?attr/colorButtonNormal"
+                android:tag="41"
+                android:clickable="true"
+                android:onClick="clickButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Fade"
+                android:elevation="16dp"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </FrameLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button7"
+            android:layout_column="1"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_row="1"
+            android:clickable="true"
+            android:text="2"
+            app:backgroundTint="@color/colorPrimaryDark"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button7"
+            android:layout_column="2"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_row="1"
+            android:clickable="true"
+            android:text="2"
+            app:backgroundTint="@color/colorPrimaryDark"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_column="0"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_row="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:src="@android:color/transparent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:backgroundTint="?attr/colorButtonNormal"
+                android:tag="43"
+                android:clickable="true"
+                android:onClick="clickButton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Demo"
+                android:elevation="16dp"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </FrameLayout>
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_columnSpan="2"
+        android:layout_margin="2dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="2dp"
+        android:layout_row="0"
+        android:layout_rowSpan="2"
+        android:background="@drawable/rounded_grid"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button3"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:clickable="true"
+            android:onClick="clickButton"
+            android:src="@drawable/pause_button"
+            android:tag="3"
+            android:text="2"
+            app:backgroundTint="?attr/colorButtonNormal"
+            app:rippleColor="@color/colorPrimaryDark"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+
+            android:id="@+id/button4"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:clickable="true"
+            android:onClick="clickButton"
+            android:tag="4"
+            android:text="2"
+            app:backgroundTint="@android:color/holo_red_light"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/power_button"
+            app:fabSize="mini" />
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_margin="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_row="0"
+        android:layout_rowSpan="2"
+        android:background="@drawable/rounded_grid"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button1"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:clickable="true"
+            android:onClick="clickButton"
+            android:tag="2"
+            android:text="2"
+            app:backgroundTint="?attr/colorButtonNormal"
+            app:rippleColor="@color/colorPrimaryDark"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/brightness_down"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+
+            android:id="@+id/button2"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:clickable="true"
+            android:onClick="clickButton"
+            android:tag="1"
+            android:text="2"
+            app:backgroundTint="?attr/colorButtonNormal"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/brighness_up"
+            app:fabSize="mini" />
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_columnSpan="1"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="2dp"
+        android:layout_row="2"
+        android:layout_rowSpan="2"
+        android:background="@drawable/rounded_grid"
+        android:columnCount="1"
+        android:rowCount="3"
+        android:layout_marginTop="16dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button6"
+            android:layout_column="0"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_row="0"
+            android:clickable="true"
+            android:text="2"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:rippleColor="@color/colorPrimaryDark"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/faster"
+            app:fabSize="mini"
+            android:tag="28"
+            android:onClick="clickButton" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button7"
+            android:layout_column="0"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_row="1"
+            android:clickable="true"
+            android:text="2"
+            app:backgroundTint="@color/colorPrimaryDark"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/slow"
+            app:fabSize="mini"
+            android:tag="32"
+            android:onClick="clickButton" />
+    </GridLayout>
+
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_marginRight="2dp"
+        android:layout_row="5"
+        android:layout_rowSpan="4"
+        android:background="@drawable/rounded_grid"
+        android:columnCount="3"
+        android:rowCount="4"
+        android:layout_marginTop="16dp">
+
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_column="0"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_row="0">
+
+            <android.support.design.widget.FloatingActionButton
+                android:src="@android:color/transparent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:backgroundTint="?attr/colorButtonNormal"
+                android:tag="40"
+                android:clickable="true"
+                android:onClick="clickButton"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Noise"
+                android:elevation="16dp"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_column="1"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_row="0">
+
+            <android.support.design.widget.FloatingActionButton
+                android:src="@android:color/transparent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:backgroundTint="?attr/colorButtonNormal"
+                android:tag="42"
+                android:clickable="true"
+                android:onClick="clickButton"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Fire"
+                android:elevation="16dp"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_column="2"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_row="0">
+
+            <android.support.design.widget.FloatingActionButton
+                android:src="@android:color/transparent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:backgroundTint="?attr/colorButtonNormal"
+                android:tag="41"
+                android:clickable="true"
+                android:onClick="clickButton"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Fade"
+                android:elevation="16dp"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </FrameLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button7"
+            android:layout_column="1"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_row="1"
+            android:clickable="true"
+            android:text="2"
+            app:backgroundTint="@color/colorPrimaryDark"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button7"
+            android:layout_column="2"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_row="1"
+            android:clickable="true"
+            android:text="2"
+            app:backgroundTint="@color/colorPrimaryDark"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_column="0"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_row="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:src="@android:color/transparent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:backgroundTint="?attr/colorButtonNormal"
+                android:tag="43"
+                android:clickable="true"
+                android:onClick="clickButton"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Demo"
+                android:elevation="16dp"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </FrameLayout>
+    </GridLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_column="0"
+        android:layout_columnSpan="4"
+        android:layout_row="9"
+        android:layout_gravity="top|fill_horizontal"
+        android:layout_marginTop="15dp">
+
+
+        <TextView
+            android:text="Brightness"
+            android:layout_width="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_gravity="top|center"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            android:textSize="24sp" />
+
+        <SeekBar
+            android:id="@+id/brightnessSeekBar"
+            style="@android:style/Widget.Holo.Light.SeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100"
+            android:layout_gravity="fill_horizontal" />
+
+    </LinearLayout>
+
+</GridLayout>
