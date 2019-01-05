@@ -1,8 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:cropToPadding="true"
+                android:background="@android:color/transparent"
+                app:srcCompat="@android:drawable/ic_menu_preferences"
+                android:onClick="showSettings"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+
+
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
@@ -11,7 +50,6 @@
     android:fadeScrollbars="false"
     android:rowCount="11"
     tools:context=".RemoteControlController">
-
 
     <GridLayout
         android:layout_width="wrap_content"
@@ -118,19 +156,36 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </FrameLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/button7"
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
             android:layout_column="1"
             android:layout_marginBottom="2dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_row="1"
-            android:clickable="true"
-            android:text="2"
-            app:backgroundTint="@color/colorPrimaryDark"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
+            android:layout_marginTop="2dp"
+            android:layout_row="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/colorSelectionButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:clickable="true"
+                android:onClick="selectColor"
+                android:src="@android:color/transparent"
+                android:tag="43"
+                app:backgroundTint="?attr/colorButtonNormal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Color"
+                android:elevation="16dp"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </FrameLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/button7"
@@ -304,6 +359,7 @@
             android:tag="28"
             android:onClick="clickButton" />
 
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/button7"
             android:layout_column="0"
@@ -323,171 +379,6 @@
             android:onClick="clickButton" />
     </GridLayout>
 
-
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_columnSpan="3"
-        android:layout_marginRight="2dp"
-        android:layout_row="5"
-        android:layout_rowSpan="4"
-        android:background="@drawable/rounded_grid"
-        android:columnCount="3"
-        android:rowCount="4"
-        android:layout_marginTop="16dp">
-
-
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_column="0"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_row="0">
-
-            <android.support.design.widget.FloatingActionButton
-                android:src="@android:color/transparent"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:backgroundTint="?attr/colorButtonNormal"
-                android:tag="40"
-                android:clickable="true"
-                android:onClick="clickButton"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Noise"
-                android:elevation="16dp"
-                android:textColor="@android:color/black"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </FrameLayout>
-
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_column="1"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_row="0">
-
-            <android.support.design.widget.FloatingActionButton
-                android:src="@android:color/transparent"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:backgroundTint="?attr/colorButtonNormal"
-                android:tag="42"
-                android:clickable="true"
-                android:onClick="clickButton"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Fire"
-                android:elevation="16dp"
-                android:textColor="@android:color/black"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </FrameLayout>
-
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_column="2"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_row="0">
-
-            <android.support.design.widget.FloatingActionButton
-                android:src="@android:color/transparent"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:backgroundTint="?attr/colorButtonNormal"
-                android:tag="41"
-                android:clickable="true"
-                android:onClick="clickButton"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Fade"
-                android:elevation="16dp"
-                android:textColor="@android:color/black"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </FrameLayout>
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/button7"
-            android:layout_column="1"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_row="1"
-            android:clickable="true"
-            android:text="2"
-            app:backgroundTint="@color/colorPrimaryDark"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/button7"
-            android:layout_column="2"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_row="1"
-            android:clickable="true"
-            android:text="2"
-            app:backgroundTint="@color/colorPrimaryDark"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
-
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_column="0"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_row="1">
-
-            <android.support.design.widget.FloatingActionButton
-                android:src="@android:color/transparent"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:backgroundTint="?attr/colorButtonNormal"
-                android:tag="43"
-                android:clickable="true"
-                android:onClick="clickButton"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Demo"
-                android:elevation="16dp"
-                android:textColor="@android:color/black"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </FrameLayout>
-    </GridLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -521,3 +412,4 @@
     </LinearLayout>
 
 </GridLayout>
+</LinearLayout>

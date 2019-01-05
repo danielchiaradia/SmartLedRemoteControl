@@ -1,6 +1,7 @@
 package smartled.com.smartlampremotecontrol;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,17 +19,21 @@ import smartled.com.smartlampremotecontrol.commands.Command;
  */
 
 public class LedBroker {
+    public static final String PREFERENCE_NAME = "ledBrokerPrefernces";
+    public static final String LAMP_IP_PREFERENCE_KEY = "lampIpPreferenceKey";
 
     private static LedBroker instance;
     private static RequestQueue queue;
-    private static String url ="http://192.168.0.241/action/?%s=%s";
+    private static String url = "http://%s/action/?%s=%s";
+    private Context context;
 
-    private LedBroker() {
+    private LedBroker(Context context) {
+        this.context = context;
     }
 
     public static synchronized LedBroker getInstance(Context context) {
         if (instance == null) {
-            instance = new LedBroker();
+            instance = new LedBroker(context);
             queue = Volley.newRequestQueue(context);
         }
 
@@ -45,8 +50,11 @@ public class LedBroker {
     }
 
     public void executeCommand(Command command) {
-        System.out.println("Sending: " + String.format(url, command.getCommandName(), command.getParameters()));
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, String.format(url, command.getCommandName(), command.getParameters()),
+        SharedPreferences pref = context.getSharedPreferences(LedBroker.PREFERENCE_NAME, Context.MODE_PRIVATE);
+        String stringCommand = String.format(url, pref.getString(LedBroker.LAMP_IP_PREFERENCE_KEY, null), command.getCommandName(), command.getParameters());
+
+        System.out.println("Sending: " + stringCommand);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, stringCommand,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -55,7 +63,8 @@ public class LedBroker {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //TODO
+
+                System.out.println(error);
             }
 
         });
