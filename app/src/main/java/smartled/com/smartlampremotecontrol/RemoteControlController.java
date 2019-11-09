@@ -1,28 +1,27 @@
 package smartled.com.smartlampremotecontrol;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 import com.flask.colorpicker.ColorPickerView;
-import com.flask.colorpicker.OnColorSelectedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import smartled.com.smartlampremotecontrol.commands.ButtonCommand;
+import smartled.com.smartlampremotecontrol.commands.ColorCommand;
+import smartled.com.smartlampremotecontrol.commands.Command;
 
 public class RemoteControlController extends AppCompatActivity {
 
@@ -51,10 +50,26 @@ public class RemoteControlController extends AppCompatActivity {
                 LedBroker.getInstance(getApplicationContext()).sendBrightness(seekBar.getProgress());
             }
         });
+
+        Integer selectedColor = PreferenceUtil.getSelectedColor();
+
+        if (selectedColor != null) {
+            final FloatingActionButton colorSelectionButton = findViewById(R.id.colorSelectionButton);
+            colorSelectionButton.setBackgroundTintList(ColorStateList.valueOf(selectedColor));
+        }
     }
 
     public void clickButton(View view) {
-        LedBroker.getInstance(getApplicationContext()).executeCommand(new ButtonCommand(view.getTag().toString()));
+        Integer color = PreferenceUtil.getSelectedColor();
+
+        List<Command> commands = new ArrayList<>();
+        commands.add(new ButtonCommand(view.getTag().toString()));
+
+        if (color != null) {
+            commands.add(new ColorCommand(color, color, color));
+        }
+
+        LedBroker.getInstance(getApplicationContext()).executeCommand(commands);
     }
 
     public void selectColor(View view) {
@@ -71,6 +86,7 @@ public class RemoteControlController extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
                         colorSelectionButton.setBackgroundTintList(ColorStateList.valueOf(selectedColor));
                         LedBroker.getInstance(getApplicationContext()).sendColor(selectedColor, selectedColor, selectedColor);
+                        PreferenceUtil.setSelectedColor(selectedColor);
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -87,21 +103,16 @@ public class RemoteControlController extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Enter Lamp IP");
 
-        SharedPreferences pref = getApplicationContext().getSharedPreferences(LedBroker.PREFERENCE_NAME, Context.MODE_PRIVATE);
-
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
-        input.setText(pref.getString(LedBroker.LAMP_IP_PREFERENCE_KEY, "0.0.0.0"));
+        input.setText(PreferenceUtil.getLampIP());
         input.selectAll();
         builder.setView(input);
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SharedPreferences pref = getApplicationContext().getSharedPreferences(LedBroker.PREFERENCE_NAME, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString(LedBroker.LAMP_IP_PREFERENCE_KEY, input.getText().toString());
-                editor.commit();
+                PreferenceUtil.setLampIP(input.getText().toString());
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

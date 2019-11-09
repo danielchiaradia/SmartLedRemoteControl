@@ -1,7 +1,6 @@
 package smartled.com.smartlampremotecontrol;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -9,6 +8,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import java.util.List;
 
 import smartled.com.smartlampremotecontrol.commands.BrightnessCommand;
 import smartled.com.smartlampremotecontrol.commands.ColorCommand;
@@ -19,8 +20,7 @@ import smartled.com.smartlampremotecontrol.commands.Command;
  */
 
 public class LedBroker {
-    public static final String PREFERENCE_NAME = "ledBrokerPrefernces";
-    public static final String LAMP_IP_PREFERENCE_KEY = "lampIpPreferenceKey";
+
 
     private static LedBroker instance;
     private static RequestQueue queue;
@@ -49,9 +49,14 @@ public class LedBroker {
         executeCommand(new BrightnessCommand(brightness));
     }
 
+    public void executeCommand(List<Command> commandChain) {
+        for (Command command : commandChain) {
+            executeCommand(command);
+        }
+    }
+
     public void executeCommand(Command command) {
-        SharedPreferences pref = context.getSharedPreferences(LedBroker.PREFERENCE_NAME, Context.MODE_PRIVATE);
-        String stringCommand = String.format(url, pref.getString(LedBroker.LAMP_IP_PREFERENCE_KEY, null), command.getCommandName(), command.getParameters());
+        String stringCommand = String.format(url, PreferenceUtil.getLampIP(), command.getCommandName(), command.getParameters());
 
         System.out.println("Sending: " + stringCommand);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, stringCommand,
