@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout android:layout_height="match_parent"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -280,35 +281,37 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/button3"
-            android:layout_marginBottom="2dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:clickable="true"
             android:onClick="clickButton"
             android:src="@drawable/pause_button"
             android:tag="3"
             android:text="2"
             app:backgroundTint="?attr/colorButtonNormal"
-            app:rippleColor="@color/colorPrimaryDark"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:fabSize="mini" />
+            app:fabCustomSize="60dp"
+            app:fabSize="mini"
+            app:useCompatPadding="false" />
 
         <android.support.design.widget.FloatingActionButton
 
             android:id="@+id/button4"
-            android:layout_marginBottom="2dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="5dp"
             android:layout_marginTop="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="2dp"
             android:clickable="true"
             android:onClick="clickButton"
+            android:src="@drawable/power_button"
             android:tag="4"
             android:text="2"
             app:backgroundTint="@android:color/holo_red_light"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/power_button"
+            app:fabCustomSize="60dp"
             app:fabSize="mini" />
     </GridLayout>
 
@@ -327,35 +330,37 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/button1"
-            android:layout_marginBottom="2dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:clickable="true"
             android:onClick="clickButton"
+            android:src="@drawable/brightness_down"
             android:tag="2"
             android:text="2"
             app:backgroundTint="?attr/colorButtonNormal"
-            app:rippleColor="@color/colorPrimaryDark"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/brightness_down"
-            app:fabSize="mini" />
+            app:fabCustomSize="60dp"
+            app:fabSize="mini"
+            app:rippleColor="@color/colorPrimaryDark" />
 
         <android.support.design.widget.FloatingActionButton
 
             android:id="@+id/button2"
-            android:layout_marginBottom="2dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="5dp"
             android:layout_marginTop="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="2dp"
             android:clickable="true"
             android:onClick="clickButton"
+            android:src="@drawable/brighness_up"
             android:tag="1"
             android:text="2"
             app:backgroundTint="?attr/colorButtonNormal"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/brighness_up"
+            app:fabCustomSize="60dp"
             app:fabSize="mini" />
     </GridLayout>
 

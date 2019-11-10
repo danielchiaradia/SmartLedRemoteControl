@@ -62,14 +62,8 @@ public class RemoteControlController extends AppCompatActivity {
     public void clickButton(View view) {
         Integer color = PreferenceUtil.getSelectedColor();
 
-        List<Command> commands = new ArrayList<>();
-        commands.add(new ButtonCommand(view.getTag().toString()));
-
-        if (color != null) {
-            commands.add(new ColorCommand(color, color, color));
-        }
-
-        LedBroker.getInstance(getApplicationContext()).executeCommand(commands);
+        LedBroker.getInstance(getApplicationContext()).executeCommand(new ButtonCommand(view.getTag().toString()),
+                                                                      new ColorCommand(color, color, color));
     }
 
     public void selectColor(View view) {

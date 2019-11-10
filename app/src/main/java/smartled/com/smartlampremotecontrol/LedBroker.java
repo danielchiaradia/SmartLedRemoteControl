@@ -9,7 +9,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 import smartled.com.smartlampremotecontrol.commands.BrightnessCommand;
 import smartled.com.smartlampremotecontrol.commands.ColorCommand;
@@ -24,7 +28,8 @@ public class LedBroker {
 
     private static LedBroker instance;
     private static RequestQueue queue;
-    private static String url = "http://%s/action/?%s=%s";
+    private static String url = "http://%s/action/?%s";
+    private static String PARAM = "%s=%s";
     private Context context;
 
     private LedBroker(Context context) {
@@ -49,14 +54,9 @@ public class LedBroker {
         executeCommand(new BrightnessCommand(brightness));
     }
 
-    public void executeCommand(List<Command> commandChain) {
-        for (Command command : commandChain) {
-            executeCommand(command);
-        }
-    }
-
-    public void executeCommand(Command command) {
-        String stringCommand = String.format(url, PreferenceUtil.getLampIP(), command.getCommandName(), command.getParameters());
+    public void executeCommand(Command... command) {
+        String parameter = Arrays.asList(command).stream().map(cmd -> String.format(PARAM, cmd.getCommandName(), cmd.getParameters())).collect(Collectors.joining("&"));
+        String stringCommand = String.format(url, PreferenceUtil.getLampIP(), parameter);
 
         System.out.println("Sending: " + stringCommand);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, stringCommand,
